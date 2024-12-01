@@ -235,7 +235,7 @@ bool bookEconomyClass(int noOfSeatsToReserved)
     return true;
 }
 
-// GoTo Main Menu - If user Wants
+// GoTo Main Menu -> If user Wants
 bool isContinue()
 {
     bool isContinue;

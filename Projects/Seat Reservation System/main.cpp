@@ -15,7 +15,7 @@ int seats[12][7] = {
     {0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0, 0}},
-    firstClassSeats = 0, businessClassSeats = 0, economyClassSeats = 0;
+    firstClassSeats = 14, businessClassSeats = 14, economyClassSeats = 56;
 
 const int first_Class = 1,
           business_Class = 2,
@@ -25,46 +25,51 @@ const int first_Class = 1,
           reset_System = 6,
           exit_Menu = 7;
 
+const int firstClassSeatPrice = 18000,
+          businessClassSeatPrice = 14000,
+          economicClassSeatPrice = 10000;
+
 // Function for Count Available Seats
-void seatsCount()
-{
-    firstClassSeats = 0, businessClassSeats = 0, economyClassSeats = 0;
-    // First Class Seats
-    for (int i = 0; i < 2; i++)
-    {
-        for (int j = 0; j < 7; j++)
-        {
-            if (!(seats[i][j]))
-            {
-                firstClassSeats++;
-            }
-        }
-    }
 
-    // Business Class Seats
-    for (int i = 2; i < 4; i++)
-    {
-        for (int j = 0; j < 7; j++)
-        {
-            if (!(seats[i][j]))
-            {
-                businessClassSeats++;
-            }
-        }
-    }
+// void seatsCount()
+// {
+//     firstClassSeats = 0, businessClassSeats = 0, economyClassSeats = 0;
+//     // First Class Seats
+//     for (int i = 0; i < 2; i++)
+//     {
+//         for (int j = 0; j < 7; j++)
+//         {
+//             if (!(seats[i][j]))
+//             {
+//                 firstClassSeats++;
+//             }
+//         }
+//     }
 
-    // Economy Class Seats
-    for (int i = 4; i < 12; i++)
-    {
-        for (int j = 0; j < 7; j++)
-        {
-            if (!(seats[i][j]))
-            {
-                economyClassSeats++;
-            }
-        }
-    }
-}
+//     // Business Class Seats
+//     for (int i = 2; i < 4; i++)
+//     {
+//         for (int j = 0; j < 7; j++)
+//         {
+//             if (!(seats[i][j]))
+//             {
+//                 businessClassSeats++;
+//             }
+//         }
+//     }
+
+//     // Economy Class Seats
+//     for (int i = 4; i < 12; i++)
+//     {
+//         for (int j = 0; j < 7; j++)
+//         {
+//             if (!(seats[i][j]))
+//             {
+//                 economyClassSeats++;
+//             }
+//         }
+//     }
+// }
 
 // Main Menu Function
 int mainMenu()
@@ -103,9 +108,7 @@ int mainMenu()
 // Show Seats Available
 void seatingPlan()
 {
-    bool isContinue;
-
-    seatsCount();
+    // seatsCount();
     cout << endl;
 
     cout << endl
@@ -116,7 +119,7 @@ void seatingPlan()
     {
         for (int j = 0; j < 7; j++)
         {
-            cout << (!(seats[i][j]) ? "_" : "#") << (j == 2 ? "   " : " ");
+            cout << (!(seats[i][j]) ? "_" : "X") << (j == 2 ? "   " : " ");
         }
         cout << endl;
     }
@@ -129,7 +132,7 @@ void seatingPlan()
     {
         for (int j = 0; j < 7; j++)
         {
-            cout << (!(seats[i][j]) ? "_" : "#") << (j == 2 ? "   " : " ");
+            cout << (!(seats[i][j]) ? "_" : "X") << (j == 2 ? "   " : " ");
         }
         cout << endl;
     }
@@ -142,19 +145,10 @@ void seatingPlan()
     {
         for (int j = 0; j < 7; j++)
         {
-            cout << (!(seats[i][j]) ? "_" : "#") << (j == 2 ? "   " : " ");
+            cout << (!(seats[i][j]) ? "_" : "X") << (j == 2 ? "   " : " ");
         }
         cout << endl;
     }
-
-    // cout << endl
-    //      << "Enter 1 to Continue to Main Menu, 0 to Exit.";
-    // cin >> isContinue;
-
-    // if (isContinue)
-    // {
-    //     mainMenu();
-    // }
 }
 
 // Function to Book First Class Seats
@@ -172,6 +166,7 @@ bool bookFirstClass(int noOfSeatsToReserved)
                 {
                     seats[i][j] = 1;
                     reserve++;
+                    firstClassSeats--;
                 }
             }
             else
@@ -199,6 +194,7 @@ bool bookBusinessClass(int noOfSeatsToReserved)
                 {
                     seats[i][j] = 1;
                     reserve++;
+                    businessClassSeats--;
                 }
             }
             else
@@ -226,6 +222,7 @@ bool bookEconomyClass(int noOfSeatsToReserved)
                 {
                     seats[i][j] = 1;
                     reserve++;
+                    economyClassSeats--;
                 }
             }
             else
@@ -238,13 +235,23 @@ bool bookEconomyClass(int noOfSeatsToReserved)
     return true;
 }
 
+// GoTo Main Menu - If user Wants
+bool isContinue()
+{
+    bool isContinue;
+
+    cout << endl
+         << "Enter 1 to Continue, 0 to Exit.  ";
+    cin >> isContinue;
+
+    return isContinue;
+}
+
 // Function for Perform User Choice
 bool handleChoice()
 {
     int choice = mainMenu(),
         noOfSeatsToReserved;
-
-    seatsCount();
 
     // Choice Functions
     switch (choice)
@@ -283,6 +290,7 @@ bool handleChoice()
         }
 
         break;
+
     case business_Class:
 
         // Ask from User -> No. Of Seats to Reserved - If Seats Available
@@ -317,6 +325,7 @@ bool handleChoice()
         }
 
         break;
+
     case economy_Class:
 
         // Ask from User -> No. Of Seats to Reserved - If Seats Available
@@ -351,17 +360,55 @@ bool handleChoice()
         }
 
         break;
+
     case seating_Plan:
 
         seatingPlan();
+
+        if (isContinue())
+        {
+            handleChoice();
+        }
+
         break;
 
     case check_Fare:
-        /* code */
+
+        cout << endl
+             << "------------ Pricing Plan ------------" << endl;
+        cout << endl
+             << "First Class Seat: " << firstClassSeatPrice << endl;
+        cout << "Business Class Seat: " << businessClassSeatPrice << endl;
+        cout << "Economic Class Seat: " << economicClassSeatPrice << endl;
+
+        if (isContinue())
+        {
+            handleChoice();
+        }
+
         break;
+
     case reset_System:
-        /* code */
+
+        // Reset All Booked Seats
+        for (int i = 0; i < 12; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                seats[i][j] = 0;
+            }
+        }
+
+        firstClassSeats = 14, businessClassSeats = 14, economyClassSeats = 56;
+        cout << "System Reset Successfully." << endl;
+
+        if (isContinue())
+        {
+            handleChoice();
+        }
+
         break;
+
     case exit_Menu:
         cout << "System Exited Successfully." << endl;
         break;
@@ -374,6 +421,7 @@ bool handleChoice()
 
 int main()
 {
+
     handleChoice();
 
     return 0;

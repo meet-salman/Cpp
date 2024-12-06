@@ -106,46 +106,33 @@ int mainMenu()
 }
 
 // Show Seats Available
-void seatingPlan()
+void displaySeatingPlan(int startCol, int endRow, string className)
 {
-    // seatsCount();
+
+    int availableSeats;
+
+    if (className == "First Class")
+    {
+        availableSeats = firstClassSeats;
+    }
+    else if (className == "Business Class")
+    {
+        availableSeats = businessClassSeats;
+    }
+    else if (className == "Economy Class")
+    {
+        availableSeats = economyClassSeats;
+    }
+
     cout << endl;
-
     cout << endl
-         << firstClassSeats << " Seats Available in First Class" << endl;
+         << availableSeats << " Seats Available in " << className << endl;
 
-    // First Class Seats
-    for (int i = 0; i < 2; i++)
+    for (int i = startCol; i < endRow; i++)
     {
         for (int j = 0; j < 7; j++)
         {
-            cout << (!(seats[i][j]) ? "_" : "X") << (j == 2 ? "   " : " ");
-        }
-        cout << endl;
-    }
-
-    cout << endl
-         << businessClassSeats << " Seats Available in Business Class" << endl;
-
-    // Business Class Seats
-    for (int i = 2; i < 4; i++)
-    {
-        for (int j = 0; j < 7; j++)
-        {
-            cout << (!(seats[i][j]) ? "_" : "X") << (j == 2 ? "   " : " ");
-        }
-        cout << endl;
-    }
-
-    cout << endl
-         << economyClassSeats << " Seats Available in Economy Class" << endl;
-
-    // Economy Class Seats
-    for (int i = 4; i < 12; i++)
-    {
-        for (int j = 0; j < 7; j++)
-        {
-            cout << (!(seats[i][j]) ? "_" : "X") << (j == 2 ? "   " : " ");
+            cout << (!(seats[i][j]) ? "[_]" : "[X]") << (j == 2 ? "   " : " ");
         }
         cout << endl;
     }
@@ -363,7 +350,9 @@ bool handleChoice()
 
     case seating_Plan:
 
-        seatingPlan();
+        displaySeatingPlan(0, 1, "First Class");
+        displaySeatingPlan(2, 4, "Business Class");
+        displaySeatingPlan(4, 12, "Economy Class");
 
         if (isContinue())
         {

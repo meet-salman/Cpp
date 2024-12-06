@@ -29,48 +29,6 @@ const int firstClassSeatPrice = 18000,
           businessClassSeatPrice = 14000,
           economicClassSeatPrice = 10000;
 
-// Function for Count Available Seats
-
-// void seatsCount()
-// {
-//     firstClassSeats = 0, businessClassSeats = 0, economyClassSeats = 0;
-//     // First Class Seats
-//     for (int i = 0; i < 2; i++)
-//     {
-//         for (int j = 0; j < 7; j++)
-//         {
-//             if (!(seats[i][j]))
-//             {
-//                 firstClassSeats++;
-//             }
-//         }
-//     }
-
-//     // Business Class Seats
-//     for (int i = 2; i < 4; i++)
-//     {
-//         for (int j = 0; j < 7; j++)
-//         {
-//             if (!(seats[i][j]))
-//             {
-//                 businessClassSeats++;
-//             }
-//         }
-//     }
-
-//     // Economy Class Seats
-//     for (int i = 4; i < 12; i++)
-//     {
-//         for (int j = 0; j < 7; j++)
-//         {
-//             if (!(seats[i][j]))
-//             {
-//                 economyClassSeats++;
-//             }
-//         }
-//     }
-// }
-
 // Main Menu Function
 int mainMenu()
 {
@@ -222,6 +180,33 @@ bool bookEconomyClass(int noOfSeatsToReserved)
     return true;
 }
 
+// Show Fare of All Classes
+void showFare()
+{
+    cout << endl
+         << "------------ Pricing Plan ------------" << endl;
+    cout << endl
+         << "First Class Seat: " << firstClassSeatPrice << endl;
+    cout << "Business Class Seat: " << businessClassSeatPrice << endl;
+    cout << "Economic Class Seat: " << economicClassSeatPrice << endl;
+}
+
+// Function to Reset System
+void systemReset()
+{
+    // Reset All Booked Seats
+    for (int i = 0; i < 12; i++)
+    {
+        for (int j = 0; j < 7; j++)
+        {
+            seats[i][j] = 0;
+        }
+    }
+
+    firstClassSeats = 14, businessClassSeats = 14, economyClassSeats = 56;
+    cout << "System Reset Successfully." << endl;
+}
+
 // GoTo Main Menu -> If user Wants
 bool isContinue()
 {
@@ -272,8 +257,12 @@ bool handleChoice()
         }
         else
         {
-            cout << "No Seats Avilable in First Class." << endl;
-            handleChoice();
+            cout << endl
+                 << "No Seats Avilable in First Class.";
+            if (isContinue())
+            {
+                handleChoice();
+            }
         }
 
         break;
@@ -307,8 +296,12 @@ bool handleChoice()
         }
         else
         {
-            cout << "No Seats Avilable in Business Class." << endl;
-            handleChoice();
+            cout << endl
+                 << "No Seats Avilable in Business Class.";
+            if (isContinue())
+            {
+                handleChoice();
+            }
         }
 
         break;
@@ -342,8 +335,12 @@ bool handleChoice()
         }
         else
         {
-            cout << "No Seats Avilable in Economy Class." << endl;
-            handleChoice();
+            cout << endl
+                 << "No Seats Avilable in Economy Class.";
+            if (isContinue())
+            {
+                handleChoice();
+            }
         }
 
         break;
@@ -363,13 +360,7 @@ bool handleChoice()
 
     case check_Fare:
 
-        cout << endl
-             << "------------ Pricing Plan ------------" << endl;
-        cout << endl
-             << "First Class Seat: " << firstClassSeatPrice << endl;
-        cout << "Business Class Seat: " << businessClassSeatPrice << endl;
-        cout << "Economic Class Seat: " << economicClassSeatPrice << endl;
-
+        showFare();
         if (isContinue())
         {
             handleChoice();
@@ -379,18 +370,7 @@ bool handleChoice()
 
     case reset_System:
 
-        // Reset All Booked Seats
-        for (int i = 0; i < 12; i++)
-        {
-            for (int j = 0; j < 7; j++)
-            {
-                seats[i][j] = 0;
-            }
-        }
-
-        firstClassSeats = 14, businessClassSeats = 14, economyClassSeats = 56;
-        cout << "System Reset Successfully." << endl;
-
+        systemReset();
         if (isContinue())
         {
             handleChoice();
@@ -403,7 +383,7 @@ bool handleChoice()
         break;
 
     default:
-        cout << "Unexpected error occurred. Please try again.\n";
+        cout << "Unexpected error occurred. Please try again." << endl;
         break;
     }
 }

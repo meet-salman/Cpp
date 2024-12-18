@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int seats[12][7] = {
@@ -347,7 +346,7 @@ bool handleChoice()
 
     case seating_Plan:
 
-        displaySeatingPlan(0, 1, "First Class");
+        displaySeatingPlan(0, 2, "First Class");
         displaySeatingPlan(2, 4, "Business Class");
         displaySeatingPlan(4, 12, "Economy Class");
 

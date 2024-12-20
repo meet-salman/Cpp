@@ -88,6 +88,29 @@ struct linkList
         }
         cout << "Value not found" << endl;
     }
+
+    // Upadate Value Function -> At specific index
+    void updateValueAtIndex(int idx, string value)
+    {
+        // Show msg -> If given idx > list length
+        if (idx > length - 1)
+        {
+            cout << "No Value at index: " << idx;
+            return;
+        }
+
+        Node *temp = first;
+
+        for (int i = 0; i <= idx; i++)
+        {
+            if (idx == temp->idx)
+            {
+                temp->value = value;
+                cout << "Value Updated" << endl;
+            }
+            temp = temp->next;
+        }
+    }
 };
 
 int main()
@@ -106,6 +129,11 @@ int main()
     cout << endl;
 
     l1.findValue("Salman Ahmed");
+    cout << endl;
+
+    l1.updateValueAtIndex(1, "Shaheer Ahmed");
+
+    l1.display();
     cout << endl;
 
     return 0;

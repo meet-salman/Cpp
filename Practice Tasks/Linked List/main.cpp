@@ -8,7 +8,7 @@ struct Node
     Node *next;
 };
 
-struct linkList
+struct linkedList
 {
     Node *first;
     Node *last;
@@ -135,29 +135,29 @@ struct linkList
 int main()
 {
 
-    linkList l1;
+    linkedList list;
 
-    l1.addValue("Salman Ahmed");
-    l1.addValue("Suheer Khan");
-    l1.addValue("Subhan Bashir");
+    list.addValue("Salman Ahmed");
+    list.addValue("Suheer Khan");
+    list.addValue("Subhan Bashir");
 
-    l1.display();
+    list.display();
     cout << endl;
 
-    l1.findValueAtIndex(2);
+    list.findValueAtIndex(2);
     cout << endl;
 
-    l1.findValue("Salman Ahmed");
+    list.findValue("Salman Ahmed");
     cout << endl;
 
-    l1.updateValueAtIndex(1, "Shaheer Ahmed");
+    list.updateValueAtIndex(1, "Shaheer Ahmed");
 
-    l1.display();
+    list.display();
     cout << endl;
 
-    l1.updateValue("Shaheer Ahmed", "Abeer Khan");
+    list.updateValue("Shaheer Ahmed", "Abeer Khan");
 
-    l1.display();
+    list.display();
     cout << endl;
 
     return 0;

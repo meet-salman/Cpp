@@ -53,6 +53,13 @@ struct linkList
     // Find Value Function -> At specific index
     void findValueAtIndex(int idx)
     {
+        // Show msg -> If given idx > list length
+        if (idx > length - 1)
+        {
+            cout << "No Value at index: " << idx;
+            return;
+        }
+
         Node *temp = first;
 
         for (int i = 0; i <= idx; i++)
@@ -63,6 +70,23 @@ struct linkList
             }
             temp = temp->next;
         }
+    }
+
+    // Find Value Function -> Find specific value
+    void findValue(string value)
+    {
+        Node *temp = first;
+
+        for (int i = 0; i < length; i++)
+        {
+            if (value == temp->value)
+            {
+                cout << "Value: " << temp->value << "  " << "Index: " << temp->idx << endl;
+                return;
+            }
+            temp = temp->next;
+        }
+        cout << "Value not found" << endl;
     }
 };
 
@@ -79,6 +103,10 @@ int main()
     cout << endl;
 
     l1.findValueAtIndex(2);
+    cout << endl;
+
+    l1.findValue("Salman Ahmed");
+    cout << endl;
 
     return 0;
 }

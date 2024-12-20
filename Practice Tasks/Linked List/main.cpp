@@ -36,6 +36,19 @@ struct linkList
         }
         length++;
     }
+
+    // Display Function -> all values
+    void display()
+    {
+        // Creating temp Node for treversing
+        Node *temp = first;
+
+        for (int i = 0; i < length; i++)
+        {
+            cout << "Index: " << temp->idx << "  " << "Value: " << temp->value << endl;
+            temp = temp->next;
+        }
+    }
 };
 
 int main()
@@ -46,6 +59,8 @@ int main()
     l1.addValue("Salman Ahmed");
     l1.addValue("Suheer Khan");
     l1.addValue("Subhan Bashir");
+
+    l1.display();
 
     return 0;
 }

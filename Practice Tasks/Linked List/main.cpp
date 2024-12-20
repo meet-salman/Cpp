@@ -49,6 +49,21 @@ struct linkList
             temp = temp->next;
         }
     }
+
+    // Find Value Function -> At specific index
+    void findValueAtIndex(int idx)
+    {
+        Node *temp = first;
+
+        for (int i = 0; i <= idx; i++)
+        {
+            if (idx == temp->idx)
+            {
+                cout << "Index: " << temp->idx << "  " << "Value: " << temp->value << endl;
+            }
+            temp = temp->next;
+        }
+    }
 };
 
 int main()
@@ -61,6 +76,9 @@ int main()
     l1.addValue("Subhan Bashir");
 
     l1.display();
+    cout << endl;
+
+    l1.findValueAtIndex(2);
 
     return 0;
 }

@@ -268,8 +268,8 @@ int main()
     list.addValue("Suheer Khan");
     list.addValue("Subhan Bashir");
     list.addValue("Abeer Khan");
-    list.addValue("Talha Sohaib");
-    list.addValue("Zohain Gul");
+    list.addValue("Ahmed Shah");
+    list.addValue("Zohaib Gul");
 
     list.display();
     cout << endl;

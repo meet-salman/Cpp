@@ -58,8 +58,8 @@ struct linkedList
     // Find Value Function -> At specific index
     void findValueAtIndex(int idx)
     {
-        // Show msg -> If given idx > list length
-        if (idx > length - 1)
+        // Check for invalid index
+        if (idx < 0 || idx >= length)
         {
             cout << "No Value at index: " << idx << endl;
             return;
@@ -67,38 +67,46 @@ struct linkedList
 
         Node *temp = first;
 
-        for (int i = 0; i <= idx; i++)
+        // Traverse the list up to the given index
+        for (int i = 0; i < idx; i++)
         {
-            if (idx == temp->index)
-            {
-                cout << "Index: " << temp->index << "  " << "Value: " << temp->value << endl;
-            }
             temp = temp->next;
         }
+        // Output the value at the index
+        cout << "Index: " << temp->index << " -> " << "Value: " << temp->value << endl;
     }
 
     // Find Value Function -> Find specific value
     void findValue(string value)
     {
+        // Check if the list is empty
+        if (first == nullptr)
+        {
+            cout << "List is empty. Value not found." << endl;
+            return;
+        }
+
         Node *temp = first;
 
-        for (int i = 0; i < length; i++)
+        while (temp)
         {
-            if (value == temp->value)
+            if (temp->value == value)
             {
-                cout << "Value: " << temp->value << "  " << "Index: " << temp->index << endl;
+                cout << "Value: " << temp->value << " -> " << "Index: " << temp->index << endl;
                 return;
             }
             temp = temp->next;
         }
+
+        // If value not found
         cout << "Value not found" << endl;
     }
 
     // Upadate Value Function -> At specific index
     void updateValueAtIndex(int idx, string value)
     {
-        // Show msg -> If given idx > list length
-        if (idx > length - 1)
+        // Check for invalid index
+        if (idx < 0 || idx >= length)
         {
             cout << "No Value at index: " << idx << endl;
             return;
@@ -106,15 +114,12 @@ struct linkedList
 
         Node *temp = first;
 
-        for (int i = 0; i <= idx; i++)
+        for (int i = 0; i < idx; i++)
         {
-            if (idx == temp->index)
-            {
-                temp->value = value;
-                cout << "Value Updated" << endl;
-            }
             temp = temp->next;
         }
+        temp->value = value;
+        cout << "Value Updated" << endl;
     }
 
     // Upadate Value Function -> Specific value
@@ -187,16 +192,16 @@ int main()
     list.display();
     cout << endl;
 
-    // list.findValueAtIndex(2);
+    // list.findValueAtIndex(3);
     // cout << endl;
 
     // list.findValue("Salman Ahmed");
     // cout << endl;
 
-    // list.updateValueAtIndex(1, "Shaheer Ahmed");
+    list.updateValueAtIndex(0, "Aqeel sahib");
 
-    // list.display();
-    // cout << endl;
+    list.display();
+    cout << endl;
 
     // list.updateValue("Shaheer Ahmed", "Abeer Khan");
 

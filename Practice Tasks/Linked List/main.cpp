@@ -77,10 +77,10 @@ struct linkedList
     }
 
     // Find Value Function -> Find specific value
-    void findValue(string value)
+    void findValue(string val)
     {
         // Check if the list is empty
-        if (first == nullptr)
+        if (!first)
         {
             cout << "List is empty. Value not found." << endl;
             return;
@@ -90,7 +90,7 @@ struct linkedList
 
         while (temp)
         {
-            if (temp->value == value)
+            if (temp->value == val)
             {
                 cout << "Value: " << temp->value << " -> " << "Index: " << temp->index << endl;
                 return;
@@ -103,7 +103,7 @@ struct linkedList
     }
 
     // Upadate Value Function -> At specific index
-    void updateValueAtIndex(int idx, string value)
+    void updateValueAtIndex(int idx, string val)
     {
         // Check for invalid index
         if (idx < 0 || idx >= length)
@@ -114,50 +114,120 @@ struct linkedList
 
         Node *temp = first;
 
-        for (int i = 0; i < idx; i++)
+        int i = 0;
+        while (i < idx)
         {
             temp = temp->next;
+            i++;
         }
-        temp->value = value;
-        cout << "Value Updated" << endl;
+
+        // Update the value
+        temp->value = val;
+        cout << "Value updated at index " << idx << endl;
     }
 
     // Upadate Value Function -> Specific value
-    void updateValue(string value, string newValue)
+    void updateValue(string val, string newVal)
     {
         Node *temp = first;
 
-        for (int i = 0; i < length; i++)
+        int i = 0;
+        while (temp)
         {
-            if (value == temp->value)
+            if (temp->value == val)
             {
-                temp->value = newValue;
-                cout << "Value Updated" << endl;
+                temp->value = newVal;
+                cout << "Value Updated: " << newVal << endl;
 
                 return;
             }
             temp = temp->next;
+            i++;
         }
-        cout << "Value not found" << endl;
+
+        // If value is not found
+        cout << "Value not found: " << val << endl;
     }
 
+    // Delete Value Function -> At specific index
     void deleteValueAtIndex(int idx)
     {
+        // Check for invalid index
+        if (idx < 0 || idx >= length)
+        {
+            cout << "No Value at index: " << idx << endl;
+            return;
+        }
+
+        Node *toDelete = nullptr;
+
+        // Deletion of first node
         if (idx == 0)
         {
+            toDelete = first;
             first = first->next;
-            length--;
         }
         else
         {
             Node *temp = first;
-            Node *prev = temp;
-            for (int i = 0; i <= idx; i++)
+
+            // Traverse to the node just before the target
+            int i = 0;
+            while (i < idx - 1)
             {
-                if (idx == temp->index)
+                temp = temp->next;
+                i++;
+            }
+            toDelete = temp->next;
+            temp->next = toDelete->next;
+        }
+        length--;
+
+        Node *temp = first;
+
+        // Update all indices
+        int i = 0;
+        while (temp)
+        {
+            temp->index = i;
+            temp = temp->next;
+            i++;
+        }
+
+        cout << "Value Deleted: " << toDelete->value << endl;
+
+        // Delete from memory
+        delete toDelete;
+    }
+
+    // Delete Value Function -> Specific value
+    void deleteValue(string val)
+    {
+        // Check if the list is empty
+        if (!first)
+        {
+            cout << "List is empty. Value not found." << endl;
+            return;
+        }
+
+        Node *toDelete = nullptr;
+
+        if (first->value == val)
+        {
+            toDelete = first;
+            first = first->next;
+        }
+        else
+        {
+            Node *prev = first;
+            Node *temp = first;
+
+            while (temp)
+            {
+                if (temp->value == val)
                 {
-                    prev->next = temp->next;
-                    length--;
+                    toDelete = temp;
+                    prev->next = toDelete->next;
                     break;
                 }
                 prev = temp;
@@ -165,14 +235,26 @@ struct linkedList
             }
         }
 
-        Node *temp = first;
-        for (int i = 0; i < length; i++)
+        if (toDelete)
         {
-            if (temp->index > idx)
+            length--;
+
+            Node *temp = first;
+
+            int i = 0;
+            while (i < length)
             {
-                temp->index--;
+                temp->index = i;
+                temp = temp->next;
+                i++;
             }
-            temp = temp->next;
+
+            cout << "Value Deleted: " << toDelete->value << endl;
+            delete toDelete;
+        }
+        else
+        {
+            cout << "Value not found: " << val << endl;
         }
     }
 };
@@ -198,17 +280,22 @@ int main()
     // list.findValue("Salman Ahmed");
     // cout << endl;
 
-    list.updateValueAtIndex(0, "Aqeel sahib");
-
-    list.display();
-    cout << endl;
-
-    // list.updateValue("Shaheer Ahmed", "Abeer Khan");
+    // list.updateValueAtIndex(0, "Aqeel sahib");
 
     // list.display();
     // cout << endl;
 
-    // list.deleteValueAtIndex(2);
+    // list.updateValue("Abeer Khan", "Malik Jee");
+
+    // list.display();
+    // cout << endl;
+
+    // list.deleteValueAtIndex(3);
+
+    // list.display();
+    // cout << endl;
+
+    // list.deleteValue("Abeer Khan");
 
     // list.display();
     // cout << endl;

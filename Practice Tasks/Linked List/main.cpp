@@ -108,14 +108,25 @@ struct linkedList
     }
 
     // Upadate Value Function -> At specific index
-    void updateValueByIndex(int idx, string val)
+    void updateValueByIndex()
     {
+
+        int idx;
+        string newVal;
+
+        cout << endl
+             << "Enter Index to Update: ";
+        cin >> idx;
+
         // Check for invalid index
         if (idx < 0 || idx >= length)
         {
             cout << "No Value at index: " << idx << endl;
             return;
         }
+
+        cout << "Enter New Value: ";
+        cin >> newVal;
 
         Node *temp = first;
 
@@ -127,21 +138,22 @@ struct linkedList
         }
 
         // Update the value
-        temp->value = val;
-        cout << "Value updated at index " << idx << endl;
+        temp->value = newVal;
+        cout << endl
+             << "Value updated at index (" << idx << ") to: " << newVal << endl;
     }
 
     // Upadate Value Function -> Specific value
     void updateValue()
     {
-        Node *temp = first;
-
         string val, newVal;
         cout << endl
              << "Enter Value to Update: ";
         cin >> val;
         cout << "Enter New Value: ";
         cin >> newVal;
+
+        Node *temp = first;
 
         int i = 0;
         while (temp)
@@ -164,7 +176,7 @@ struct linkedList
     }
 
     // Delete Value Function -> At specific index
-    void deleteValueAtIndex(int idx)
+    void deleteValueByIndex(int idx)
     {
         // Check for invalid index
         if (idx < 0 || idx >= length)
@@ -208,14 +220,15 @@ struct linkedList
             i++;
         }
 
-        cout << "Value Deleted: " << toDelete->value << endl;
+        cout << endl
+             << "Value at Index (" << idx << ") Deleted: " << toDelete->value << endl;
 
         // Delete from memory
         delete toDelete;
     }
 
     // Delete Value Function -> Specific value
-    void deleteValue(string val)
+    void deleteValue()
     {
         // Check if the list is empty
         if (!first)
@@ -223,6 +236,11 @@ struct linkedList
             cout << "List is empty. Value not found." << endl;
             return;
         }
+
+        string val;
+        cout << endl
+             << "Enter Value to Delete: ";
+        cin >> val;
 
         Node *toDelete = nullptr;
 
@@ -381,7 +399,7 @@ int mainMenu()
 
     case 5:
 
-        myList.updateValueByIndex(getIndex(), getValue());
+        myList.updateValueByIndex();
 
         if (isContinue())
             mainMenu();
@@ -393,6 +411,28 @@ int mainMenu()
     case 6:
 
         myList.updateValue();
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
+    case 7:
+
+        myList.deleteValueByIndex(getIndex());
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
+    case 8:
+
+        myList.deleteValue();
 
         if (isContinue())
             mainMenu();
@@ -442,7 +482,7 @@ int main()
     // list.display();
     // cout << endl;
 
-    // list.deleteValueAtIndex(3);
+    // list.deleteValueByIndex(3);
 
     // list.display();
     // cout << endl;

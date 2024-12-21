@@ -259,20 +259,103 @@ struct linkedList
     }
 };
 
+int choice, idx;
+string val;
+
+string enterValue()
+{
+    cout << endl
+         << "Enter Value: ";
+    cin >> val;
+
+    return val;
+}
+
+bool isContinue()
+{
+    bool is;
+    cout << "Enter 1 to Continue, 0 to Exit:  ";
+    cin >> is;
+
+    return is;
+}
+
+void exitProgram()
+{
+    cout << "Exiting the program. Goodbye!" << endl;
+    return;
+}
+
+linkedList myList;
+
+int mainMenu()
+{
+
+    // Displaying the menu
+    cout << "------------------------" << endl;
+    cout << "    Linked List Menu" << endl;
+    cout << "------------------------" << endl;
+    cout << "1. Add Value" << endl;
+    cout << "2. Display List" << endl;
+    cout << "3. Find Value by Index" << endl;
+    cout << "4. Find Specific Value" << endl;
+    cout << "5. Update Value by Index" << endl;
+    cout << "6. Update Specific Value" << endl;
+    cout << "7. Delete Value by Index" << endl;
+    cout << "8. Delete Specific Value" << endl;
+    cout << "9. Exit" << endl;
+
+    cout << endl
+         << "Enter Your Choice: ";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+
+        myList.addValue(enterValue());
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
+    case 2:
+
+        myList.display();
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
+    case 9:
+        exitProgram();
+
+    default:
+        break;
+    }
+    return 0;
+}
+
 int main()
 {
 
-    linkedList list;
+    mainMenu();
 
-    list.addValue("Salman Ahmed");
-    list.addValue("Suheer Khan");
-    list.addValue("Subhan Bashir");
-    list.addValue("Abeer Khan");
-    list.addValue("Ahmed Shah");
-    list.addValue("Zohaib Gul");
+    // list.addValue("Salman Ahmed");
+    // list.addValue("Suheer Khan");
+    // list.addValue("Subhan Bashir");
+    // list.addValue("Abeer Khan");
+    // list.addValue("Ahmed Shah");
+    // list.addValue("Zohaib Gul");
 
-    list.display();
-    cout << endl;
+    // list.display();
+    // cout << endl;
 
     // list.findValueAtIndex(3);
     // cout << endl;

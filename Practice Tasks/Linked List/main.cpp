@@ -447,6 +447,9 @@ int mainMenu()
         break;
 
     default:
+        cout << "Invalid choice! Please try again." << endl;
+        mainMenu();
+
         break;
     }
     return 0;

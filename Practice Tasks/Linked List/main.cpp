@@ -103,7 +103,7 @@ struct linkedList
     }
 
     // Upadate Value Function -> At specific index
-    void updateValueAtIndex(int idx, string val)
+    void updateValueByIndex(int idx, string val)
     {
         // Check for invalid index
         if (idx < 0 || idx >= length)
@@ -262,15 +262,6 @@ struct linkedList
 int choice, idx;
 string val;
 
-string getValue()
-{
-    cout << endl
-         << "Enter Value: ";
-    cin >> val;
-
-    return val;
-}
-
 int getIndex()
 {
     cout << endl
@@ -278,6 +269,15 @@ int getIndex()
     cin >> idx;
 
     return idx;
+}
+
+string getValue()
+{
+    cout << endl
+         << "Enter Value: ";
+    cin >> val;
+
+    return val;
 }
 
 bool isContinue()
@@ -364,6 +364,17 @@ int mainMenu()
 
         break;
 
+    case 5:
+
+        myList.updateValueByIndex(getIndex(), getValue());
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
     case 9:
         exitProgram();
         break;
@@ -395,7 +406,7 @@ int main()
     // list.findValue("Salman Ahmed");
     // cout << endl;
 
-    // list.updateValueAtIndex(0, "Aqeel sahib");
+    // list.updateValueByIndex(0, "Aqeel sahib");
 
     // list.display();
     // cout << endl;

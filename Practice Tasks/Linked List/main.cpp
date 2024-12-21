@@ -353,8 +353,20 @@ int mainMenu()
 
         break;
 
+    case 4:
+
+        myList.findValue(getValue());
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
     case 9:
         exitProgram();
+        break;
 
     default:
         break;

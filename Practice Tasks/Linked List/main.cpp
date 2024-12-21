@@ -56,7 +56,7 @@ struct linkedList
     }
 
     // Find Value Function -> At specific index
-    void findValueAtIndex(int idx)
+    void findValueByIndex(int idx)
     {
         // Check for invalid index
         if (idx < 0 || idx >= length)
@@ -262,13 +262,22 @@ struct linkedList
 int choice, idx;
 string val;
 
-string enterValue()
+string getValue()
 {
     cout << endl
          << "Enter Value: ";
     cin >> val;
 
     return val;
+}
+
+int getIndex()
+{
+    cout << endl
+         << "Enter Index: ";
+    cin >> idx;
+
+    return idx;
 }
 
 bool isContinue()
@@ -313,7 +322,7 @@ int mainMenu()
     {
     case 1:
 
-        myList.addValue(enterValue());
+        myList.addValue(getValue());
 
         if (isContinue())
             mainMenu();
@@ -325,6 +334,17 @@ int mainMenu()
     case 2:
 
         myList.display();
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
+    case 3:
+
+        myList.findValueByIndex(getIndex());
 
         if (isContinue())
             mainMenu();
@@ -357,7 +377,7 @@ int main()
     // list.display();
     // cout << endl;
 
-    // list.findValueAtIndex(3);
+    // list.findValueByIndex(3);
     // cout << endl;
 
     // list.findValue("Salman Ahmed");

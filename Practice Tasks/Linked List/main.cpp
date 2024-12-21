@@ -77,7 +77,7 @@ struct linkedList
     }
 
     // Find Value Function -> Find specific value
-    void findValue(string val)
+    void findValue()
     {
         // Check if the list is empty
         if (!first)
@@ -85,6 +85,11 @@ struct linkedList
             cout << "List is empty. Value not found." << endl;
             return;
         }
+
+        string val;
+        cout << endl
+             << "Enter Value to Find: ";
+        cin >> val;
 
         Node *temp = first;
 
@@ -127,9 +132,16 @@ struct linkedList
     }
 
     // Upadate Value Function -> Specific value
-    void updateValue(string val, string newVal)
+    void updateValue()
     {
         Node *temp = first;
+
+        string val, newVal;
+        cout << endl
+             << "Enter Value to Update: ";
+        cin >> val;
+        cout << "Enter New Value: ";
+        cin >> newVal;
 
         int i = 0;
         while (temp)
@@ -137,7 +149,8 @@ struct linkedList
             if (temp->value == val)
             {
                 temp->value = newVal;
-                cout << "Value Updated: " << newVal << endl;
+                cout << endl
+                     << "Value (" << val << ")" << " Updated to: " << newVal << endl;
 
                 return;
             }
@@ -146,7 +159,8 @@ struct linkedList
         }
 
         // If value is not found
-        cout << "Value not found: " << val << endl;
+        cout << endl
+             << "Value not found: " << val << endl;
     }
 
     // Delete Value Function -> At specific index
@@ -283,7 +297,8 @@ string getValue()
 bool isContinue()
 {
     bool is;
-    cout << "Enter 1 to Continue, 0 to Exit:  ";
+    cout << endl
+         << "Enter 1 to Continue, 0 to Exit:  ";
     cin >> is;
 
     return is;
@@ -355,7 +370,7 @@ int mainMenu()
 
     case 4:
 
-        myList.findValue(getValue());
+        myList.findValue();
 
         if (isContinue())
             mainMenu();
@@ -367,6 +382,17 @@ int mainMenu()
     case 5:
 
         myList.updateValueByIndex(getIndex(), getValue());
+
+        if (isContinue())
+            mainMenu();
+        else
+            exitProgram();
+
+        break;
+
+    case 6:
+
+        myList.updateValue();
 
         if (isContinue())
             mainMenu();

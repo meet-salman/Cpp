@@ -328,6 +328,7 @@ void exitProgram()
     return;
 }
 
+// Creating List
 linkedList myList;
 
 int mainMenu()
@@ -454,43 +455,8 @@ int mainMenu()
 int main()
 {
 
+    // Main Menu Function - Controlling all Activities
     mainMenu();
-
-    // list.addValue("Salman Ahmed");
-    // list.addValue("Suheer Khan");
-    // list.addValue("Subhan Bashir");
-    // list.addValue("Abeer Khan");
-    // list.addValue("Ahmed Shah");
-    // list.addValue("Zohaib Gul");
-
-    // list.display();
-    // cout << endl;
-
-    // list.findValueByIndex(3);
-    // cout << endl;
-
-    // list.findValue("Salman Ahmed");
-    // cout << endl;
-
-    // list.updateValueByIndex(0, "Aqeel sahib");
-
-    // list.display();
-    // cout << endl;
-
-    // list.updateValue("Abeer Khan", "Malik Jee");
-
-    // list.display();
-    // cout << endl;
-
-    // list.deleteValueByIndex(3);
-
-    // list.display();
-    // cout << endl;
-
-    // list.deleteValue("Abeer Khan");
-
-    // list.display();
-    // cout << endl;
 
     return 0;
 }

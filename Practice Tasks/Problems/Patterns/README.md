@@ -31,7 +31,16 @@ This repository contains examples of various patterns implemented in C++. These 
    *
    ```
 
-   
+4. **Increasing Number Triangle Pattern**
+   ```
+   1
+   1 2
+   1 2 3
+   1 2 3 4
+   1 2 3 4 5
+   ```
+
+
 
 ## How to Use
 

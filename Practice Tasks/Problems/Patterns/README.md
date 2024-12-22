@@ -48,6 +48,15 @@ This repository contains examples of various patterns implemented in C++. These 
    1 
    ```
 
+6. **Repeated Number Triangle Pattern**
+   ```
+   1
+   2 2
+   3 3 3
+   4 4 4 4
+   5 5 5 5 5
+   ```
+
 
 
 ## How to Use

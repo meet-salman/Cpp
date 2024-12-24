@@ -3,7 +3,11 @@ using namespace std;
 
 int main()
 {
-    int num = 1634, copyNum = num, result = 0, n = 0;
+    int num, copyNum, result = 0, n = 0;
+
+    cout << "Enter Number to Check: ";
+    cin >> num;
+    copyNum = num;
 
     // Count digits of number
     while (copyNum > 0)

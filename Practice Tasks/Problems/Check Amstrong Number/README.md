@@ -6,19 +6,8 @@ C++ program to check whether a given number is an Armstrong number. Explanation 
 
 An **Armstrong number** (also known as a **narcissistic number**) is a number that is equal to the sum of its own digits raised to the power of the number of digits. For example:
 
-- \(153 = 1^3 + 5^3 + 3^3\)
-- \(9474 = 9^4 + 4^4 + 7^4 + 4^4\)
-
-### Formula
-For an n-digit number, the formula is:
-
-\[
-\text{Armstrong Number} = d_1^n + d_2^n + \dots + d_k^n
-\]
-
-Where:
-- \(d_1, d_2, \dots, d_k\) are the digits of the number
-- \(n\) is the total number of digits
+- \(153 = 1³ + 5³ + 3³)
+- \(9474 = 9⁴ + 4⁴ + 7⁴ + 4⁴)
 
 
 ## Sample Output

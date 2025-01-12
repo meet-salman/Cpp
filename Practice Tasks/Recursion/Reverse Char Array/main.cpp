@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 void reverse(char *first, char *last)
@@ -16,7 +17,7 @@ void reverse(char *first, char *last)
 int main()
 {
     char arr[] = "salman";
-    int len = sizeof(arr) / sizeof(arr[0]) - 1;
+    int len = strlen(arr);
 
     reverse(arr, arr + len - 1);
 

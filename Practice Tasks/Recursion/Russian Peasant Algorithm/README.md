@@ -2,11 +2,11 @@
 
 ## Problem Description
 
-Russian Peasant Multiplication is an ancient algorithm used to multiply two integers. The method involves halving one number and doubling the other until the first number is reduced to 1, adding specific results along the way to get the final product. This technique is efficient and utilizes simple arithmetic operations to achieve the result.
+Russian Peasant Multiplication is an ancient algorithm used to multiply two integers by repeatedly halving one number and doubling the other, and summing specific values to get the final product. This method is also known as the Egyptian multiplication method and uses simple arithmetic operations to perform multiplication efficiently.
 
 ### Algorithm Steps:
 
-1. **Start with two integers**, `a` (multiplicand) and `b` (multiplier), that need to be multiplied.
+1. **Start with two integers**, `a` (multiplicand) and `b` (multiplier), to be multiplied.
 
 2. **Repeat until `a` becomes 1**:
    - **If `a` is even**:
@@ -18,32 +18,36 @@ Russian Peasant Multiplication is an ancient algorithm used to multiply two inte
      - Double `b` (i.e., `b = b * 2`).
      - **Add the current value of `b` to the result** since `a` was odd at that step.
 
-3. **Continue this process**, halving `a` and doubling `b` at each step, while adding the current value of `b` to the result when `a` is odd.
+3. **Continue this process**, adding the value of `b` to the result whenever `a` is odd.
 
-4. **Sum all values of `b` recorded** during the steps where `a` was odd, along with the final value of `b` when `a` equals 1.
+4. **The final result** is the sum of all `b` values added during the steps when `a` was odd.
 
 ### Example:
 
 Consider multiplying `a = 5` and `b = 3` using the Russian Peasant Multiplication algorithm:
 
 - **Step 1**: Start with `a = 5`, `b = 3`.
-  - `a` is odd, subtract 1: `a = 4`, double `b`: `b = 6`. Add `3` to result.
-- **Step 2**: Now `a = 4`, `b = 6`.
-  - `a` is even, halve `a`: `a = 2`, double `b`: `b = 12`.
-- **Step 3**: Now `a = 2`, `b = 12`.
-  - `a` is even, halve `a`: `a = 1`, double `b`: `b = 24`.
-- **Step 4**: Now `a = 1`, `b = 24`.
-  - `a` is 1, add `b` to result.
+  - `a` is odd, so add `3` to the result.
+  - Subtract 1 from `a`: `a = 4`, then halve it: `a = 2`.
+  - Double `b`: `b = 6`.
+- **Step 2**: Now `a = 2`, `b = 6`.
+  - `a` is even, so halve `a`: `a = 1`.
+  - Double `b`: `b = 12`.
+- **Step 3**: Now `a = 1`, `b = 12`.
+  - `a` is 1, so add `12` to the result.
 
-Sum of all `b` values added during odd steps: `3 + 24 = 27`. However, correct multiplication yields `15`, indicating the need to track and correct each step carefully.
+Summing the values added during odd steps: `3 + 12 = 15`.
+
+### Final Calculation:
+- **Result**: 15
 
 ## Objective
 
-Implement the Russian Peasant Multiplication algorithm recursively, handling both even and odd cases of `a`. The function should compute the product of two numbers using this approach.
+The goal is to implement the Russian Peasant Multiplication algorithm recursively in C++. The function should manage both even and odd cases of `a`, accumulating the sum of `b` values for odd cases to compute the product.
 
 ### Constraints:
-- The inputs will be positive integers.
-- The implementation should be efficient and handle varying input sizes effectively.
+- Both inputs will be positive integers.
+- The function should handle both small and large values effectively and efficiently.
 
 
 

@@ -36,6 +36,16 @@ int main()
 
     int num = 9474, digits = countDigits(num);
 
-    cout << checkAmstrong(num, digits);
+    // cout << checkAmstrong(num, digits);
+
+    if (checkAmstrong(num, digits) == num)
+    {
+        cout << num << " is an Amstrong Number.";
+    }
+    else
+    {
+        cout << num << " is not an Amstrong Number.";
+    }
+
     return 0;
 }

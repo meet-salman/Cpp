@@ -12,7 +12,7 @@ The N-Queens problem can have multiple valid solutions, and the goal is to find 
 
 ## Example
 
-### For **N = 4**:
+#### For **N = 4**:
 
 One possible solution:
 

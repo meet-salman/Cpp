@@ -30,6 +30,30 @@ void sortArr(int arr[], int n)
     }
 }
 
+// void sortArr(int arr[], int n)
+// {
+
+//     for (int start = 0; start < n - 1; start++)
+//     {
+//         int minIdx = start;
+
+//         for (int i = start + 1; i < n; i++)
+//         {
+//             if (arr[i] < arr[minIdx])
+//             {
+//                 minIdx = i;
+//             }
+//         }
+
+//         if (arr[start] != arr[minIdx])
+//         {
+//             int temp = arr[start];
+//             arr[start] = arr[minIdx];
+//             arr[minIdx] = temp;
+//         }
+//     }
+// }
+
 int main()
 {
 

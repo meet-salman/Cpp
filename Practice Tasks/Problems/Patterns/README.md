@@ -66,7 +66,7 @@ This repository contains examples of various patterns implemented in C++. These 
    1
    ```
 
-8. **Stars Paramid**
+8. **Triangle**
    ```
        *     
       ***    
@@ -75,13 +75,40 @@ This repository contains examples of various patterns implemented in C++. These 
    *********
    ```
 
-9. **Stars Paramid Reverse**
+9. **Reverse Triangle**
    ```
    *********
     *******  
      *****   
       ***    
        *     
+   ```
+
+10. **Diamond**
+   ```
+       *     
+      ***    
+     *****   
+    *******  
+   *********
+   *********
+    *******  
+     *****   
+      ***    
+       *     
+   ```
+
+11. **Sided Triangle**
+   ```
+   *
+   **
+   ***
+   ****
+   ***** 
+   ****
+   ***
+   **
+   *
    ```
 
 

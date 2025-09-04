@@ -57,6 +57,15 @@ This repository contains examples of various patterns implemented in C++. These 
    5 5 5 5 5
    ```
 
+6. **Reverse Repeated Number Triangle Pattern**
+   ```
+   5 5 5 5 5
+   4 4 4 4
+   3 3 3
+   2 2
+   1
+   ```
+
 
 
 ## How to Use

@@ -57,7 +57,7 @@ This repository contains examples of various patterns implemented in C++. These 
    5 5 5 5 5
    ```
 
-6. **Reverse Repeated Number Triangle Pattern**
+7. **Reverse Repeated Number Triangle Pattern**
    ```
    5 5 5 5 5
    4 4 4 4
@@ -66,13 +66,22 @@ This repository contains examples of various patterns implemented in C++. These 
    1
    ```
 
-6. **Stars Paramid**
+8. **Stars Paramid**
    ```
        *     
       ***    
      *****   
     *******  
    *********
+   ```
+
+9. **Stars Paramid Reverse**
+   ```
+   *********
+    *******  
+     *****   
+      ***    
+       *     
    ```
 
 

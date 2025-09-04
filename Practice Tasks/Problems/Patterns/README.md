@@ -111,6 +111,24 @@ This repository contains examples of various patterns implemented in C++. These 
    *
    ```
 
+12. **Binary Right Angle Triangle**
+   ```
+   1 
+   0 1 
+   1 0 1 
+   0 1 0 1 
+   1 0 1 0 1 
+   0 1 0 1 0 1 
+   ```
+
+13. **Palindromic Triangle**
+   ```
+   1      1 
+   12    21 
+   123  321 
+   12344321
+   ```
+
 
 
 ## How to Use

@@ -24,11 +24,13 @@ void print_pattern(int n)
 
     for (int i = 0; i < n; i++)
     {
+        // Letters
         for (int j = 0; j <= i; j++)
         {
             cout << (char)('A' + j) << " ";
         }
 
+        // Palindrome Letters
         for (int k = i - 1; k >= 0; k--)
         {
             cout << (char)('A' + k) << " ";

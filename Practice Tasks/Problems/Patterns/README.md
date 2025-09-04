@@ -66,6 +66,15 @@ This repository contains examples of various patterns implemented in C++. These 
    1
    ```
 
+6. **Stars Paramid**
+   ```
+       *     
+      ***    
+     *****   
+    *******  
+   *********
+   ```
+
 
 
 ## How to Use

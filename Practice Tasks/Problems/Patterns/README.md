@@ -138,6 +138,58 @@ This repository contains examples of various patterns implemented in C++. These 
    11 12 13 14 15
    ```
 
+15. **Alphabetic Right Angle Triangle**
+   ```
+   A 
+   A B 
+   A B C
+   A B C D
+   A B C D E
+   ```
+
+16. **Reverse Alphabetic Right Angle Triangle**
+   ```
+   A B C D E
+   A B C D
+   A B C
+   A B 
+   A 
+   ```
+
+17. **Repeated Alphabetic Right Angle Triangle**
+   ```
+   A 
+   B B
+   C C C
+   D D D D
+   E E E E E
+   ```
+
+18. **Reverse Repeated Alphabetic Right Angle Triangle**
+   ```
+   E E E E E
+   D D D D
+   C C C
+   B B
+   A 
+   ```
+
+19. **Alphabet Palindrome Right Triangle**
+   ```
+   A 
+   A B A 
+   A B C B A
+   A B C D C B A
+   ```   
+
+20. **Alphabet Palindrome Triangle**
+   ```
+         A 
+       A B A
+     A B C B A
+   A B C D C B A
+   ```   
+
 
 
 ## How to Use

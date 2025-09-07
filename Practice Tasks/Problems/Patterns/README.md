@@ -190,6 +190,15 @@ This repository contains examples of various patterns implemented in C++. These 
    A B C D C B A
    ```   
 
+21. **Descending Alphabet Triangle**
+   ```
+   E
+   D E
+   C D E
+   B C D E
+   A B C D E
+   ```   
+
 
 
 ## How to Use

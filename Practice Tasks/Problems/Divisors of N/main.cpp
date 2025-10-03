@@ -10,7 +10,7 @@ void print(const T &val)
 void find_divisors(set<int> &divisors, int n)
 {
     int i = 1;
-    while (i <= sqrt(n))
+    while (i * i <= n)
     {
         if (n % i == 0)
         {
